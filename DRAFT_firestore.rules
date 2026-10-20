@@ -1,0 +1,119 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global default-deny safety net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isValidCloudTransferRecord(data, userId) {
+      return data.keys().hasAll([
+               'userId',
+               'fileName',
+               'sizeBytes',
+               'category',
+               'direction',
+               'peerDeviceName',
+               'sha256Checksum',
+               'status',
+               'createdAt',
+               'updatedAt'
+             ]) &&
+             data.keys().hasOnly([
+               'userId',
+               'fileName',
+               'sizeBytes',
+               'category',
+               'direction',
+               'peerDeviceName',
+               'sha256Checksum',
+               'status',
+               'createdAt',
+               'updatedAt'
+             ]) &&
+             data.userId is string &&
+             data.userId == request.auth.uid &&
+             data.userId == userId &&
+             data.fileName is string &&
+             data.fileName.size() >= 1 &&
+             data.fileName.size() <= 255 &&
+             data.sizeBytes is int &&
+             data.sizeBytes >= 0 &&
+             data.category is string &&
+             data.category.size() >= 1 &&
+             data.category.size() <= 40 &&
+             data.direction is string &&
+             (data.direction == 'SENT' || data.direction == 'RECEIVED') &&
+             data.peerDeviceName is string &&
+             data.peerDeviceName.size() >= 1 &&
+             data.peerDeviceName.size() <= 80 &&
+             data.sha256Checksum is string &&
+             data.sha256Checksum.size() <= 128 &&
+             data.status is string &&
+             (data.status == 'PENDING' ||
+              data.status == 'IN_PROGRESS' ||
+              data.status == 'COMPLETED' ||
+              data.status == 'PAUSED') &&
+             data.createdAt is timestamp &&
+             data.createdAt <= request.time &&
+             data.updatedAt is timestamp &&
+             data.updatedAt <= request.time;
+    }
+
+    match /users/{userId}/transfer_records/{recordId} {
+      allow get: if isSignedIn() &&
+                    isValidId(userId) &&
+                    isValidId(recordId) &&
+                    request.auth.uid == userId;
+
+      allow list: if isSignedIn() &&
+                     request.auth.uid == userId &&
+                     existing().userId == request.auth.uid;
+
+      allow create: if isSignedIn() &&
+                       isValidId(userId) &&
+                       isValidId(recordId) &&
+                       request.auth.uid == userId &&
+                       isValidCloudTransferRecord(incoming(), userId);
+
+      allow update: if isSignedIn() &&
+                       isValidId(userId) &&
+                       isValidId(recordId) &&
+                       request.auth.uid == userId &&
+                       isValidCloudTransferRecord(incoming(), userId) &&
+                       incoming().userId == existing().userId &&
+                       incoming().createdAt == existing().createdAt &&
+                       incoming().diff(existing()).affectedKeys().hasOnly([
+                         'fileName',
+                         'sizeBytes',
+                         'category',
+                         'direction',
+                         'peerDeviceName',
+                         'sha256Checksum',
+                         'status',
+                         'updatedAt'
+                       ]);
+
+      allow delete: if isSignedIn() &&
+                       isValidId(userId) &&
+                       isValidId(recordId) &&
+                       request.auth.uid == userId;
+    }
+  }
+}

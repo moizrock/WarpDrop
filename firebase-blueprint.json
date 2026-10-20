@@ -1,0 +1,75 @@
+{
+  "entities": {
+    "CloudTransferRecord": {
+      "title": "CloudTransferRecord",
+      "description": "Represents an encrypted metadata record of a WarpDrop 5 GHz P2P file transfer synced to the user's cloud account.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "UID of the authenticated Google user who owns this transfer record."
+        },
+        "fileName": {
+          "type": "string",
+          "description": "Display name of the transferred file (1..255 chars)."
+        },
+        "sizeBytes": {
+          "type": "integer",
+          "description": "Size of the transferred payload in bytes (>= 0)."
+        },
+        "category": {
+          "type": "string",
+          "description": "Media category of the file (PHOTOS, VIDEOS, MUSIC, FILES, APPS)."
+        },
+        "direction": {
+          "type": "string",
+          "enum": ["SENT", "RECEIVED"],
+          "description": "Whether the file was sent or received by this device."
+        },
+        "peerDeviceName": {
+          "type": "string",
+          "description": "Nickname of the peer device involved in the transfer (1..80 chars)."
+        },
+        "sha256Checksum": {
+          "type": "string",
+          "description": "Verified SHA-256 integrity digest of the transferred payload."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["PENDING", "IN_PROGRESS", "COMPLETED", "PAUSED"],
+          "description": "Transfer lifecycle status."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the transfer record was created (FieldValue.serverTimestamp())."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the transfer record was last updated (FieldValue.serverTimestamp())."
+        }
+      },
+      "required": [
+        "userId",
+        "fileName",
+        "sizeBytes",
+        "category",
+        "direction",
+        "peerDeviceName",
+        "sha256Checksum",
+        "status",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/transfer_records/{recordId}": {
+      "schema": {
+        "$ref": "#/entities/CloudTransferRecord"
+      },
+      "description": "Per-user subcollection storing authenticated cloud transfer history records."
+    }
+  }
+}

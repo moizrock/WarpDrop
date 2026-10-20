@@ -1,0 +1,6 @@
+{
+  "name": "WarpDrop",
+  "description": "WarpDrop v1.0.0 — High-speed 5 GHz Wi-Fi Direct P2P file transfer, phone cloning, X25519 QR pairing, AI duplicate vault, and live thermal/link telemetry HUD.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

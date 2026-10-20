@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Transparent 108x108 Foreground Canvas with 25% Safe Margin Around Graphic (X=27..81, Y=27..81) -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M0,0h108v108h-108z" />
+
+    <!-- Subtle Soft Sky Halo Behind Emblem in Safe Zone -->
+    <path
+        android:fillColor="#140066FF"
+        android:pathData="M54,54m-25,0a25,25 0,1 1,50 0a25,25 0,1 1,-50 0" />
+
+    <!-- ==================== LEFT SMARTPHONE (X=27..46, Y=32..76) ==================== -->
+    <!-- Vibrant Cobalt Blue (#0066FF) Sleek Modern Smartphone Body -->
+    <path
+        android:fillColor="#0066FF"
+        android:pathData="M31,32 L42,32 A4,4 0 0,1 46,36 L46,72 A4,4 0 0,1 42,76 L31,76 A4,4 0 0,1 27,72 L27,36 A4,4 0 0,1 31,32 Z" />
+
+    <!-- Deep Cyan (#0099CC) Illuminated Inner Screen -->
+    <path
+        android:fillColor="#0099CC"
+        android:pathData="M31.2,36 L41.8,36 A1.8,1.8 0 0,1 43.6,37.8 L43.6,69.5 A1.8,1.8 0 0,1 41.8,71.3 L31.2,71.3 A1.8,1.8 0 0,1 29.4,69.5 L29.4,37.8 A1.8,1.8 0 0,1 31.2,36 Z" />
+
+    <!-- Crisp White Earpiece & Home Bar Details -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M34.5,34 L38.5,34 M34,73.7 L39,73.7"
+        android:strokeWidth="1.5"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round" />
+
+    <!-- ==================== RIGHT SMARTPHONE (X=62..81, Y=32..76) ==================== -->
+    <!-- Vibrant Cobalt Blue (#0066FF) Sleek Modern Smartphone Body -->
+    <path
+        android:fillColor="#0066FF"
+        android:pathData="M66,32 L77,32 A4,4 0 0,1 81,36 L81,72 A4,4 0 0,1 77,76 L66,76 A4,4 0 0,1 62,72 L62,36 A4,4 0 0,1 66,32 Z" />
+
+    <!-- Deep Cyan (#0099CC) Illuminated Inner Screen -->
+    <path
+        android:fillColor="#0099CC"
+        android:pathData="M66.2,36 L76.8,36 A1.8,1.8 0 0,1 78.6,37.8 L78.6,69.5 A1.8,1.8 0 0,1 76.8,71.3 L66.2,71.3 A1.8,1.8 0 0,1 64.4,69.5 L64.4,37.8 A1.8,1.8 0 0,1 66.2,36 Z" />
+
+    <!-- Crisp White Earpiece & Home Bar Details -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M69.5,34 L73.5,34 M69,73.7 L74,73.7"
+        android:strokeWidth="1.5"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round" />
+
+    <!-- ==================== CENTRAL SUPERSONIC LIGHTNING SPEED BOLT (X=36..72, Y=27..81) ==================== -->
+    <!-- Electric Cyan (#00E5FF) Supersonic Transfer Rays Connecting Both Phones -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M38,47 L70,47 M36,54 L72,54 M38,61 L70,61"
+        android:strokeWidth="2.4"
+        android:strokeColor="#00E5FF"
+        android:strokeLineCap="round" />
+
+    <!-- Electric Cyan (#00E5FF) Outer Supersonic Bolt Layer -->
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M59,27 L38.5,55.5 L51.5,55.5 L47,81 L69.5,52 L56.5,52 Z"
+        android:strokeWidth="2.0"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineJoin="round" />
+
+    <!-- Energy Yellow (#FFB800) Bold Sharp Supersonic Speed Bolt Core -->
+    <path
+        android:fillColor="#FFB800"
+        android:pathData="M57.8,30 L41.5,54 L52.8,54 L49,77 L66.5,53.5 L55.2,53.5 Z" />
+</vector>

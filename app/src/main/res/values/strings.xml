@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">WarpDrop</string>
+    <string name="app_title">WarpDrop</string>
+    <string name="splash_tagline">Ultra-fast file transfer without internet</string>
+    <string name="splash_footer">🔒 5 GHz Direct • End-to-End Encrypted • 100% Offline</string>
+    <string name="transfer_tab">Share</string>
+    <string name="clone_tab">Phone Clone</string>
+    <string name="shield_tab">AI Shield</string>
+    <string name="hub_tab">Media Hub</string>
+    <string name="telemetry_tab">Diagnostics</string>
+    <string name="btn_send">SEND</string>
+    <string name="btn_receive">RECEIVE</string>
+    <string name="clone_banner">Switching to a New Phone?</string>
+    <string name="clone_sub">Transfer your WhatsApp chats, contacts, photos, and apps wirelessly.</string>
+    <string name="btn_start_clone">START 5 GHz PHONE CLONE</string>
+
+    <!-- Additional Global English Strings -->
+    <string name="tab_radar">Transfer</string>
+    <string name="tab_clone">Phone Clone</string>
+    <string name="tab_vault">AI Shield</string>
+    <string name="tab_hud">Diagnostics</string>
+    <string name="radar_subtitle">5 GHz Non-DFS Zero-Hop Engine</string>
+    <string name="clone_subtitle">Full-Device Parallel Stream Migration</string>
+    <string name="vault_subtitle">SHA-256 Deduplication &amp; Encrypted Vault</string>
+    <string name="hud_subtitle">Real-Time Thermal, SoC &amp; Link Diagnostics</string>
+    <string name="btn_start_group">Host 5 GHz Group</string>
+    <string name="btn_discover_peers">Scan 5 GHz Peers</string>
+    <string name="btn_stop_p2p">Tear Down Link</string>
+    <string name="btn_rotate_keys">Rotate X25519 Keypair</string>
+    <string name="btn_pick_files">Select Payload Files</string>
+    <string name="btn_scan_duplicates">Run SHA-256 Deduplication Scan</string>
+    <string name="permission_nearby_rationale">NEARBY_WIFI_DEVICES (neverForLocation) is required for zero-GPS 5 GHz Wi-Fi Direct group formation and peer discovery.</string>
+</resources>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="360dp"
+    android:height="140dp"
+    android:viewportWidth="360"
+    android:viewportHeight="140">
+    <!-- Deep Cyber-Slate Background -->
+    <path android:pathData="M0,0h360v140h-360z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="0"
+                android:startY="0"
+                android:endX="360"
+                android:endY="140"
+                android:type="linear">
+                <item android:color="#080D1A" android:offset="0.0" />
+                <item android:color="#0F172A" android:offset="0.5" />
+                <item android:color="#1E1B4B" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <!-- Perspective Grid Lines -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M0,35 L360,35 M0,70 L360,70 M0,105 L360,105 M60,0 L60,140 M120,0 L120,140 M180,0 L180,140 M240,0 L240,140 M300,0 L300,140"
+        android:strokeWidth="0.6"
+        android:strokeColor="#1838BDF8" />
+    <!-- Left Node (Source Device) -->
+    <path
+        android:fillColor="#111C35"
+        android:pathData="M48,38 L88,38 A6,6 0 0,1 94,44 L94,96 A6,6 0 0,1 88,102 L48,102 A6,6 0 0,1 42,96 L42,44 A6,6 0 0,1 48,38 Z"
+        android:strokeWidth="1.8"
+        android:strokeColor="#00F0FF" />
+    <!-- Right Node (Target Device) -->
+    <path
+        android:fillColor="#111C35"
+        android:pathData="M272,38 L312,38 A6,6 0 0,1 318,44 L318,96 A6,6 0 0,1 312,102 L272,102 A6,6 0 0,1 266,96 L266,44 A6,6 0 0,1 272,38 Z"
+        android:strokeWidth="1.8"
+        android:strokeColor="#8B5CF6" />
+    <!-- 5 GHz Non-DFS Laser Data Streams -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M94,58 C145,32 215,32 266,58"
+        android:strokeWidth="2.5"
+        android:strokeColor="#00F0FF" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M94,70 L266,70"
+        android:strokeWidth="3.0"
+        android:strokeColor="#38BDF8" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M94,82 C145,108 215,108 266,82"
+        android:strokeWidth="2.5"
+        android:strokeColor="#8B5CF6" />
+    <!-- Center X25519 Shield Pulse -->
+    <path
+        android:fillColor="#1600F0FF"
+        android:pathData="M180,70m-28,0a28,28 0,1 1,56 0a28,28 0,1 1,-56 0"
+        android:strokeWidth="1.5"
+        android:strokeColor="#00F0FF" />
+    <path
+        android:fillColor="#00F0FF"
+        android:pathData="M180,52 L196,60 L196,72 C196,81 189,88 180,91 C171,88 164,81 164,72 L164,60 Z" />
+    <path
+        android:fillColor="#080D1A"
+        android:pathData="M177,76 L171,70 L173.5,67.5 L177,71 L186.5,61.5 L189,64 Z" />
+</vector>

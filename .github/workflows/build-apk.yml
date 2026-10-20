@@ -1,0 +1,49 @@
+name: Build WarpDrop Production APK
+
+on: [push, workflow_dispatch]
+
+permissions:
+  contents: write
+
+jobs:
+  build-apk:
+    name: Build WarpDrop Production APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17 (Temurin)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Run Gradle Assemble Debug & Copy APK
+        run: |
+          if [ ! -f .env ] && [ -f .env.example ]; then
+            cp .env.example .env
+          fi
+          if [ ! -f debug.keystore ] && [ -f debug.keystore.base64 ]; then
+            base64 -d debug.keystore.base64 > debug.keystore
+          fi
+          gradle assembleDebug
+          cp app/build/outputs/apk/debug/app-debug.apk WarpDrop-v1.0.apk
+
+      - name: Upload WarpDrop-v1.0-APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: WarpDrop-v1.0-APK
+          path: WarpDrop-v1.0.apk
+
+      - name: Publish Direct-Download GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: "v1.0.${{ github.run_number }}"
+          name: "WarpDrop v1.0 Release APK"
+          files: WarpDrop-v1.0.apk
+          generate_release_notes: true
